@@ -12,10 +12,37 @@ const choiceButtonsElement = document.getElementById("choice-buttons");
 let state = {};
 
 // the funciton that starts the game at the beginning
-function startGame() {}
+function startGame() {
+    state = {}
+    showTextNode(1)
+}
 
 //funciton for showing the right text of whatever question we moved onto
-function showTextNode(textNodeIndex) {}
+function showTextNode(textNodeIndex) {
+
+    const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    textElement.innerText = textNode.text
+// loop to remove all the options so that we only fill the space with the ones we need for that choice
+    while(choiceButtonsElement.firstChild) {
+        choiceButtonsElement.removeChild(choiceButtonsElement.firstChild)
+    }
+// adding a button for each choice we have
+    textNode.options.forEach(option => {
+        if (showOption(option)){
+            const button = document.createElement("button")
+            button.innerText = option.text
+            button.classList.add("button")
+            button.addEventListener("click" , () => selectOption(option))
+            choiceButtonsElement.appendChild(button)
+        }
+    })
+}
+
+
+function showOption(option){
+ return true
+}
+
 
 //function for when we select an option
 function selectChoice(choice) {}
@@ -28,10 +55,10 @@ function selectChoice(choice) {}
 const textNodes = [
   {
     id: 1,
-    text: "Welcome to Choose Your Own Adventure: Bonus Point Edition :)",
+    text: "Welcome to Choose Your Own Adventure: Bonus Point Edition  :)",
     options: [
       {
-        text: "start game",
+        text: "start game!",
         nextText: 2,
       },
     ],
