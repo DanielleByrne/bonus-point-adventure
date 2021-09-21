@@ -4,3 +4,5 @@
 // option 3 : do something fun -> axe throwing OR look at something cool -> neon museum 
 // option 4 : eat out -> skinny fats OR eat in -> bibim kitchen OR wild card -> the hawaiian trifecta
 // option 5 : dessert> if yes, something classic -> boba OR something customizeable -> froyo 
+
+console.log("hello")
